@@ -1,0 +1,47 @@
+﻿<Window x:Class="montaspro.nicolo._4i.gelati.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:montaspro.nicolo._4i.gelati"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Button Height="30" Width="90" Margin="5" Content="P1"></Button>
+                <Button Height="30" Width="90" Margin="5" Content="P2"></Button>
+                <Button Height="30" Width="90" Margin="5" Content="P3"></Button>
+                <Button Height="30" Width="90" Margin="5" Content="P4"></Button>
+            </StackPanel>
+
+
+            <DataGrid x:Name = "dgGelati"
+                      Grid.Row="1"
+                      SelectionChanged="dgDati_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="False">
+            </DataGrid>
+            <TextBlock x:Name="statusbar" Grid.Row="2"></TextBlock>
+        </Grid>
+        <DataGrid x:Name="dgIngredienti" SelectionChanged="dgIngredienti_SelectionChanged" Grid.Column="1" CanUserDeleteRows="False" CanUserAddRows="False" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Gelati" Binding="{Binding idGelato}"/>
+                <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}"/>
+                <DataGridTextColumn Header="Val" Binding="{Binding Val}"/>
+                <DataGridTextColumn Header="Calorie" Binding="{Binding Calorie}" Visibility="Visible"/>
+                <DataGridTextColumn Header="Colorante" Binding="{Binding Colorante}" Visibility="Visible"/>
+                <DataGridTextColumn Header="Lattosio" Binding="{Binding Lattosio}" Visibility="Visible"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </Grid>
+</Window>
